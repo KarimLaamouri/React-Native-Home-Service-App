@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
 
-const ITEM_WIDTH = (width - 56) / 2;
+const ITEM_WIDTH = (width - 40) / 2;
 
 
 export default function TopRated({ topBusinessList, title = "Top Rated Per Category", navigation }) {
@@ -59,37 +59,36 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                     width: ITEM_WIDTH,
                     height: 220,
                     backgroundColor: '#f1f1f1',
-
-                    margin: 8,
+                    margin: 4,
                     borderRadius: 10,
-
                 }} />
             );
         }
 
         return (
             <TouchableOpacity
-                style={{
-                    width: ITEM_WIDTH,
-                    margin: 8,
-                    borderRadius: 10,
-                    backgroundColor: '#fff',
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 2 },
-                    shadowOpacity: 0.1,
-                    shadowRadius: 3,
-                    elevation: 3,
-                    overflow: 'hidden'
-                }}
-                onPress={() => navigation.navigate('BusinessDetails', { business: item })}
-            >
+            style={{
+                width: ITEM_WIDTH,
+                margin: 4,
+                borderRadius: 10,
+                backgroundColor: '#fff',
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 2 },
+                shadowOpacity: 0.1,
+                shadowRadius: 3,
+                elevation: 3,
+                overflow: 'hidden'
+            }}
+            onPress={() => navigation.navigate('BusinessDetails', { business: item })}
+        >
                 <Image
                     source={{ uri: item?.images[0]?.url }}
                     style={{
                         width: '100%',
                         height: 120,
-                        borderTopLeftRadius: 15,
-                        borderTopRightRadius: 15,
+                        borderTopLeftRadius: 10,
+                        borderTopRightRadius: 10,
+                        resizeMode: 'cover',
                     }}
                 />
                 <View style={{ padding: 10 }}>
@@ -152,7 +151,7 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
     };
 
     return (
-        <View style={{ marginTop: 20 }}>
+        <View style={{ marginTop: 35 }}>
             <View style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
@@ -184,11 +183,16 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index.toString()}
                 contentContainerStyle={{
-                    paddingHorizontal: 12,
+                    paddingHorizontal: 8,
                     paddingBottom: 20,
+                    alignItems: 'center',
+                }}
+                columnWrapperStyle={{
+                    justifyContent: 'center',
+                    gap: 8,
                 }}
                 style={{
-                    marginHorizontal: -8,
+                    marginHorizontal: -4,
                 }}
             />
         </View>

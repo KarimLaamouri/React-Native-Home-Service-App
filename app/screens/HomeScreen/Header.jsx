@@ -4,7 +4,12 @@ import Colors from '../Utils/Colors';
 
 export default function Header() {
     return (
-        <View style={{ padding: 20, backgroundColor: Colors.YELLOW }}>
+        <View style={{ 
+            padding: 30, 
+            backgroundColor: '#FF9800',
+            marginTop: -20,
+            paddingTop: 50,
+        }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                 <View style={{
                     width: 40,
@@ -17,7 +22,7 @@ export default function Header() {
                     <Text style={{ color: '#fff', fontSize: 20 }}>M</Text>
                 </View>
                 <View>
-                    <Text style={{ color: Colors.GRAY }}>Welcome,</Text>
+                    <Text style={{ color: Colors.WHITE }}>Welcome,</Text>
                     <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Mohammed ali</Text>
                 </View>
             </View>

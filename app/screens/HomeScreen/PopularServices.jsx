@@ -92,10 +92,14 @@ export default function PopularServices({ categoryList, navigation }) {
                 keyExtractor={(item, index) => index.toString()}
                 contentContainerStyle={{
                     paddingHorizontal: 12,
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}
                 style={{
                     marginHorizontal: -8,
                 }}
+                ListEmptyComponent={<View style={{ width: width * 0.1 }} />}
+                ListFooterComponent={<View style={{ width: width * 0.1 }} />}
             />
         </View>
     );
