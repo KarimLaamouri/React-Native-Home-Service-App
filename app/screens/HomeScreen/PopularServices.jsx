@@ -5,7 +5,7 @@ import Colors from '../Utils/Colors';
 const { width } = Dimensions.get('window');
 const ITEM_WIDTH = (width - 80) / 3;
 
-export default function PopularServices({ categoryList }) {
+export default function PopularServices({ categoryList, navigation }) {
     const renderItem = ({ item }) => {
         if (!item) {
             return (
@@ -29,6 +29,9 @@ export default function PopularServices({ categoryList }) {
                     backgroundColor: item.bgcolor?.hex,
                     padding: 10,
                 }}
+                onPress={() => navigation.navigate('CategoryBusinessList', {
+                    categoryName: item.name
+                })}
             >
                 <View style={{
                     alignItems: 'center',

@@ -4,7 +4,9 @@ import Colors from '../Utils/Colors';
 import { FontAwesome } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
+
 const ITEM_WIDTH = (width - 56) / 2;
+
 
 export default function TopRated({ topBusinessList, title = "Top Rated Per Category" }) {
     const renderStars = (rating) => {
@@ -12,7 +14,7 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
         const hasHalfStar = rating % 1 >= 0.5;
 
         return (
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 3 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 4 }}>
                 {[1, 2, 3, 4, 5].map((_, index) => {
                     if (index < fullStars) {
                         return (
@@ -55,10 +57,12 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
             return (
                 <View style={{
                     width: ITEM_WIDTH,
-                    height: 230,
+                    height: 220,
                     backgroundColor: '#f1f1f1',
+
                     margin: 8,
                     borderRadius: 10,
+
                 }} />
             );
         }
@@ -66,22 +70,24 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
         return (
             <View style={{
                 width: ITEM_WIDTH,
+
                 margin: 8,
                 borderRadius: 10,
                 backgroundColor: '#fff',
                 shadowColor: '#000',
                 shadowOffset: { width: 0, height: 2 },
                 shadowOpacity: 0.1,
-                shadowRadius: 4,
+                shadowRadius: 3,
                 elevation: 3,
+                overflow: 'hidden'
             }}>
                 <Image
                     source={{ uri: item?.images[0]?.url }}
                     style={{
                         width: '100%',
-                        height: 110,
-                        borderTopLeftRadius: 10,
-                        borderTopRightRadius: 10,
+                        height: 120,
+                        borderTopLeftRadius: 15,
+                        borderTopRightRadius: 15,
                     }}
                 />
                 <View style={{ padding: 10 }}>
@@ -94,7 +100,7 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                     </Text>
 
                     <Text style={{
-                        fontSize: 15,
+                        fontSize: 14,
                         fontWeight: 'bold',
                         marginBottom: 2,
                     }}>
@@ -124,13 +130,13 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                             paddingVertical: 8,
                             borderRadius: 6,
                             alignItems: 'center',
-                            marginTop: 5,
+                            marginTop: 4,
                         }}
                     >
                         <Text style={{
                             color: '#fff',
                             fontSize: 13,
-                            fontWeight: '600'
+                            fontWeight: '500'
                         }}>
                             Book Now
                         </Text>
