@@ -67,18 +67,21 @@ export default function CategoryBusinessList({ route, navigation }) {
     };
 
     const renderItem = ({ item }) => (
-        <View style={{
-            width: width - 30,
-            marginVertical: 8,
-            borderRadius: 15,
-            backgroundColor: '#fff',
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.1,
-            shadowRadius: 3,
-            elevation: 3,
-            overflow: 'hidden'
-        }}>
+        <TouchableOpacity
+            style={{
+                width: width - 30,
+                marginVertical: 8,
+                borderRadius: 15,
+                backgroundColor: '#fff',
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 2 },
+                shadowOpacity: 0.1,
+                shadowRadius: 3,
+                elevation: 3,
+                overflow: 'hidden'
+            }}
+            onPress={() => navigation.navigate('BusinessDetails', { business: item })}
+        >
             <Image
                 source={{ uri: item?.images[0]?.url }}
                 style={{
@@ -131,6 +134,10 @@ export default function CategoryBusinessList({ route, navigation }) {
                         alignItems: 'center',
                         marginTop: 8,
                     }}
+                    onPress={(e) => {
+                        e.stopPropagation(); // Empêche la navigation vers les détails
+                        // Logique pour la réservation
+                    }}
                 >
                     <Text style={{
                         color: '#fff',
@@ -141,7 +148,7 @@ export default function CategoryBusinessList({ route, navigation }) {
                     </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 
     return (

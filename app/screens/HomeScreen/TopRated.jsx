@@ -8,7 +8,7 @@ const { width } = Dimensions.get('window');
 const ITEM_WIDTH = (width - 56) / 2;
 
 
-export default function TopRated({ topBusinessList, title = "Top Rated Per Category" }) {
+export default function TopRated({ topBusinessList, title = "Top Rated Per Category", navigation }) {
     const renderStars = (rating) => {
         const fullStars = Math.floor(rating);
         const hasHalfStar = rating % 1 >= 0.5;
@@ -68,19 +68,21 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
         }
 
         return (
-            <View style={{
-                width: ITEM_WIDTH,
-
-                margin: 8,
-                borderRadius: 10,
-                backgroundColor: '#fff',
-                shadowColor: '#000',
-                shadowOffset: { width: 0, height: 2 },
-                shadowOpacity: 0.1,
-                shadowRadius: 3,
-                elevation: 3,
-                overflow: 'hidden'
-            }}>
+            <TouchableOpacity
+                style={{
+                    width: ITEM_WIDTH,
+                    margin: 8,
+                    borderRadius: 10,
+                    backgroundColor: '#fff',
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 3,
+                    elevation: 3,
+                    overflow: 'hidden'
+                }}
+                onPress={() => navigation.navigate('BusinessDetails', { business: item })}
+            >
                 <Image
                     source={{ uri: item?.images[0]?.url }}
                     style={{
@@ -132,6 +134,9 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                             alignItems: 'center',
                             marginTop: 4,
                         }}
+                        onPress={(e) => {
+                            e.stopPropagation();
+                        }}
                     >
                         <Text style={{
                             color: '#fff',
@@ -142,7 +147,7 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                         </Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </TouchableOpacity>
         );
     };
 

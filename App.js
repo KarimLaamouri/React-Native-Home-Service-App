@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import TabNavigation from "./app/navigations/tabNavigation";
 import { createStackNavigator } from '@react-navigation/stack';
 import CategoryBusinessList from "./app/screens/CategoryBusinessList/CategoryBusinessList";
+import BusinessDetails from "./app/screens/BusinessDetails/BusinessDetails";
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
@@ -27,6 +28,16 @@ export default function App() {
                 fontWeight: '600',
               },
             })}
+          />
+          <Stack.Screen
+            name="BusinessDetails"
+            component={BusinessDetails}
+            options={{
+              title: "Business Details",
+              headerTitleStyle: {
+                fontWeight: '600',
+              },
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
