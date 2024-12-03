@@ -151,7 +151,7 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
     };
 
     return (
-        <View style={{ marginTop: 35 }}>
+        <View style={{ marginTop: 25 }}>
             <View style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
