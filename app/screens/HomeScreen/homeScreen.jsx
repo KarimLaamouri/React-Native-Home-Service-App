@@ -43,7 +43,7 @@ export default function HomeScreen({ navigation }) {
       <Header />
       <View style={{ padding: 15 }}>
         <PopularServices categoryList={categoryList} navigation={navigation} />
-        <TopRated topBusinessList={topBusinessList} />
+        <TopRated topBusinessList={topBusinessList} navigation={navigation} />
       </View>
     </>
   );
