@@ -5,6 +5,7 @@ import TabNavigation from "./app/navigations/tabNavigation";
 import { createStackNavigator } from '@react-navigation/stack';
 import CategoryBusinessList from "./app/screens/CategoryBusinessList/CategoryBusinessList";
 import BusinessDetails from "./app/screens/BusinessDetails/BusinessDetails";
+import WelcomeScreen from "./app/screens/WelcomeScreen/WelcomeScreen";
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
@@ -13,7 +14,12 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Welcome">
+          <Stack.Screen
+            name="Welcome"
+            component={WelcomeScreen}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="MainTab"
             component={TabNavigation}
@@ -41,7 +47,7 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </View>
   );
 }
