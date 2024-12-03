@@ -1,14 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import Login from "./app/screens/LoginScreen/login"; // Assuming the filename is 'login.js'
-import HomeScreen from "./app/screens/HomeScreen/homeScreen";
-import TabNavigation from "./app/navigations/tabNavigation";
+import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import TabNavigation from "./app/navigations/tabNavigation";
+
 export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-      <TabNavigation/>
+        <TabNavigation />
       </NavigationContainer>
       <StatusBar style="auto" />
     </View>
@@ -19,6 +18,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    
   },
 });
