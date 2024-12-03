@@ -5,7 +5,7 @@ import PopularServices from './PopularServices';
 import TopRated from './TopRated';
 import { getCategory, getTopBusinessInCategory } from '../../services/GlobalApi';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const [categoryList, setCategoryList] = useState([]);
   const [topBusinessList, setTopBusinessList] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
@@ -47,7 +47,7 @@ export default function HomeScreen() {
     >
       <Header />
       <View style={{ padding: 15 }}>
-        <PopularServices categoryList={categoryList} />
+        <PopularServices categoryList={categoryList} navigation={navigation} />
         <TopRated topBusinessList={topBusinessList} />
       </View>
     </ScrollView>

@@ -55,4 +55,29 @@ export const getTopBusinessInCategory = async (categoryList) => {
         result.push(result1.businessLists[0]);
     }
     return { businessLists: result };
+};
+
+export const getBusinessByCategory = async (categoryName) => {
+    const query = gql`
+    query getBusinessByCategory {
+        businessLists(where: { category: { name: "${categoryName}" } }) {
+            id
+            name
+            about
+            address
+            category {
+                name
+            }
+            contactPerson
+            email
+            images {
+                url
+            }
+            phoneNumber
+            rating
+        }
+    }
+    `;
+    const result = await request(MASTER_URL, query);
+    return result;
 }; 

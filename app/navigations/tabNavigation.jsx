@@ -6,11 +6,11 @@ import BookingScreen from '../screens/BookingScreen/BookingScreen'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import HomeScreen from '../screens/HomeScreen/homeScreen'
 import Colors from '../screens/Utils/Colors'
+
 const Tab = createBottomTabNavigator()
 export default function TabNavigation() {
   return (
     <Tab.Navigator screenOptions={{
-      //headerShown: false,
       tabBarActiveTintColor: Colors.PRIMARY
     }}>
       <Tab.Screen name='Home' component={HomeScreen}
@@ -19,7 +19,7 @@ export default function TabNavigation() {
             <Text style={{ color: color, fontSize: 12, marginTop: -7 }}>Home</Text>
           ),
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="home" size={24} color={color} />          
+            <FontAwesome name="home" size={24} color={color} />
           )
         }} />
       <Tab.Screen name='Booking' component={BookingScreen}
@@ -40,7 +40,6 @@ export default function TabNavigation() {
             <FontAwesome name="user-circle" size={24} color={color} />
           )
         }} />
-
     </Tab.Navigator>
   )
 }
