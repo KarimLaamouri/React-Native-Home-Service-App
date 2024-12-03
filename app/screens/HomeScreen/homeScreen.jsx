@@ -1,4 +1,4 @@
-import { View, ScrollView, RefreshControl } from 'react-native';
+import { View, FlatList, RefreshControl } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import PopularServices from './PopularServices';
@@ -38,18 +38,26 @@ export default function HomeScreen({ navigation }) {
     getCategoryList().finally(() => setRefreshing(false));
   }, []);
 
-  return (
-    <ScrollView
-      style={{ flex: 1, backgroundColor: '#fff' }}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-    >
+  const renderItem = () => (
+    <>
       <Header />
       <View style={{ padding: 15 }}>
         <PopularServices categoryList={categoryList} navigation={navigation} />
         <TopRated topBusinessList={topBusinessList} />
       </View>
-    </ScrollView>
+    </>
+  );
+
+  return (
+    <FlatList
+      data={[{ key: 'content' }]}
+      renderItem={renderItem}
+      style={{ flex: 1, backgroundColor: '#fff' }}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      showsVerticalScrollIndicator={false}
+      scrollEventThrottle={16}
+    />
   );
 }
