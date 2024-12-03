@@ -4,7 +4,9 @@ import Colors from '../Utils/Colors';
 import { FontAwesome } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
-const ITEM_WIDTH = width / 2 - 15; // For 2 items per row
+
+const ITEM_WIDTH = (width - 56) / 2;
+
 
 export default function TopRated({ topBusinessList, title = "Top Rated Per Category" }) {
     const renderStars = (rating) => {
@@ -57,8 +59,10 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                     width: ITEM_WIDTH,
                     height: 220,
                     backgroundColor: '#f1f1f1',
-                    margin: 7,
-                    borderRadius: 15,
+
+                    margin: 8,
+                    borderRadius: 10,
+
                 }} />
             );
         }
@@ -66,8 +70,9 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
         return (
             <View style={{
                 width: ITEM_WIDTH,
-                margin: 7,
-                borderRadius: 15,
+
+                margin: 8,
+                borderRadius: 10,
                 backgroundColor: '#fff',
                 shadowColor: '#000',
                 shadowOffset: { width: 0, height: 2 },
@@ -148,7 +153,7 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 marginBottom: 10,
-                paddingHorizontal: 15,
+                paddingHorizontal: 20,
             }}>
                 <Text style={{
                     fontSize: 16,
@@ -174,7 +179,11 @@ export default function TopRated({ topBusinessList, title = "Top Rated Per Categ
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index.toString()}
                 contentContainerStyle={{
-                    paddingHorizontal: 8,
+                    paddingHorizontal: 12,
+                    paddingBottom: 20,
+                }}
+                style={{
+                    marginHorizontal: -8,
                 }}
             />
         </View>
