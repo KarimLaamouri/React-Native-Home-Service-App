@@ -3,7 +3,7 @@ import React from 'react';
 import Colors from '../Utils/Colors';
 
 const { width } = Dimensions.get('window');
-const ITEM_WIDTH = width / 3 - 20;
+const ITEM_WIDTH = (width - 80) / 3;
 
 export default function PopularServices({ categoryList }) {
     const renderItem = ({ item }) => {
@@ -13,7 +13,7 @@ export default function PopularServices({ categoryList }) {
                     width: ITEM_WIDTH,
                     height: 90,
                     backgroundColor: '#f1f1f1',
-                    margin: 5,
+                    margin: 8,
                     borderRadius: 12,
                 }} />
             );
@@ -24,7 +24,7 @@ export default function PopularServices({ categoryList }) {
                 style={{
                     width: ITEM_WIDTH,
                     height: 90,
-                    margin: 5,
+                    margin: 8,
                     borderRadius: 12,
                     backgroundColor: item.bgcolor?.hex,
                     padding: 10,
@@ -48,7 +48,7 @@ export default function PopularServices({ categoryList }) {
                         fontWeight: '500',
                         textAlign: 'center',
                         fontSize: 12,
-                    }}>
+                    }} numberOfLines={2}>
                         {item.name}
                     </Text>
                 </View>
@@ -63,7 +63,7 @@ export default function PopularServices({ categoryList }) {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 marginBottom: 10,
-                paddingHorizontal: 15,
+                paddingHorizontal: 20,
             }}>
                 <Text style={{
                     fontSize: 16,
@@ -88,7 +88,10 @@ export default function PopularServices({ categoryList }) {
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index.toString()}
                 contentContainerStyle={{
-                    paddingHorizontal: 10,
+                    paddingHorizontal: 12,
+                }}
+                style={{
+                    marginHorizontal: -8,
                 }}
             />
         </View>
